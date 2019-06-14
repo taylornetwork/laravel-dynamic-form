@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Observers;
+namespace TaylorNetwork\DynamicForm\Observers;
 
 use TaylorNetwork\DynamicForm\Models\Question;
 

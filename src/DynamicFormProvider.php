@@ -2,9 +2,9 @@
 
 namespace TaylorNetwork\DynamicForm;
 
-use App\Observers\FormObserver;
-use App\Observers\PageObserver;
-use App\Observers\QuestionObserver;
+use TaylorNetwork\DynamicForm\Observers\FormObserver;
+use TaylorNetwork\DynamicForm\Observers\PageObserver;
+use TaylorNetwork\DynamicForm\Observers\QuestionObserver;
 use Illuminate\Support\ServiceProvider;
 use TaylorNetwork\DynamicForm\Models\Form;
 use TaylorNetwork\DynamicForm\Models\Page;
