@@ -33,7 +33,7 @@
                         <button type="button" class="btn btn-outline-danger mr-auto" data-dismiss="modal" @click="reset()">Cancel</button>
                         <button type="button" class="btn btn-outline-secondary" @click="currentPage--" v-show="currentPage > 1">Back</button>
                         <button type="button" class="btn btn-outline-primary" @click="currentPage++" v-show="currentPage < formData.pages.length">Next</button>
-                        <button type="button" class="btn btn-outline-primary" v-show="currentPage === formData.pages.length" @click="submit()" :disabled="!isValid()">Submit</button>
+                        <button type="button" class="btn btn-outline-primary" v-show="currentPage === formData.pages.length" @click="submit()" :disabled="submitDisabled">Submit</button>
                     </div>
                 </form>
             </div>
@@ -58,6 +58,12 @@
 
         created() {
             this.reset();
+        },
+
+        computed: {
+            submitDisabled() {
+                return !this.isValid();
+            }
         },
 
         methods: {
