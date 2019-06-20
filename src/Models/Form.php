@@ -30,4 +30,9 @@ class Form extends Model
     {
         return $this->pages()->where('number', $number)->first();
     }
+
+    public static function fetch(string $key): Form
+    {
+        return static::where('key', $key)->first();
+    }
 }
