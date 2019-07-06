@@ -42,13 +42,13 @@ class Question extends Model
         return false;
     }
 
-    public function addOptions(array $options)
+    public function addOptions(array $options, bool $numericValues = false)
     {
-        foreach($options as $option) {
+        foreach($options as $index => $option) {
             if(gettype($option) === 'array') {
                 $this->addOption($option['text'] ?? $option['option'], $option['value'] ?? null);
             } else {
-                $this->addOption($option);
+                $this->addOption($option, (gettype($index) === 'string' || $numericValues) ? $index : null);
             }
         }
 

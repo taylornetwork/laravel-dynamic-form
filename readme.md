@@ -4,6 +4,8 @@ This package lets you dynamically create forms for a Laravel application that ca
 
 I created this package to have better control over user form pages, questions and options. 
 
+*Note: both the package and readme are still a work in progress*
+
 ## Install
 
 ```bash
