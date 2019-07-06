@@ -24,7 +24,7 @@
                                       label="text"
                                       :required="question.required === 1"
                                       v-model="form[question.id]"
-                                      :reduce="option => option.text"></v-select>
+                                      :reduce="reducer(option)"></v-select>
                             <textarea class="form-control" :name="question.htmlId" v-else-if="question.type === 'textarea'" rows="7" :required="question.required === 1" v-model="form[question.id]"></textarea>
                             <input :type="question.type" :name="question.htmlId" class="form-control" :required="question.required === 1" v-model="form[question.id]" v-else>
                         </div>
@@ -117,6 +117,13 @@
                         Vue.set(this.form, question.id, '');
                     });
                 });
+            },
+
+            reducer(option) {
+                if(option.value !== null) {
+                    return option.value;
+                }
+                return option.text;
             }
         },
 
