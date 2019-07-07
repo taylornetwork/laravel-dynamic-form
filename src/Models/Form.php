@@ -3,6 +3,7 @@
 namespace TaylorNetwork\DynamicForm\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Form extends Model
 {
@@ -31,14 +32,15 @@ class Form extends Model
         return $this->pages()->where('number', $number)->first();
     }
 
-    public static function fetch(string $key): Form
+    public static function fetch(string $key)
     {
         try {
-            return static::where('key', $key)->first();
-        } catch (\Exception $e) {
+            return static::where('key', $key)->firstOrFail();
+        } catch (ModelNotFoundException $e) {
             if(!config('dynamic_form.ignore_form_not_found', true)) {
                 throw $e;
             }
         }
+        return null;
     }
 }

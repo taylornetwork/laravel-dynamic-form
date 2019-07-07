@@ -47,7 +47,11 @@
     import vSelect from 'vue-select'
 
     export default {
-        props: [ 'id', 'formData', 'postRoute' ],
+        props: {
+            id: { required: true, type: String },
+            formData: { default: null },
+            postRoute: { default: '/' },
+        },
 
         data() {
             return {

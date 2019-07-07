@@ -24,6 +24,8 @@ class DynamicFormProvider extends ServiceProvider
 
         $this->mergeConfigFrom(__DIR__.'/config/dynamic_form.php', 'dynamic_form');
 
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'dynamic_form');
+
         $this->publishes([
             __DIR__.'/../database/migrations' => database_path('migrations'),
         ], 'form-migrations');
