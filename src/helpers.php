@@ -13,7 +13,7 @@ if(!function_exists('render_vue_modal')) {
 
     function render_vue_modal(string $id, string $key, string $route = '/', string $vue = 'dynamic-form')
     {
-        return view('dynamic_form.dynamic_form_modal', compact('id', 'key', 'route', 'vue'));
+        return view('dynamic_form::dynamic_form_modal', compact('id', 'key', 'route', 'vue'));
     }
 
 }
