@@ -22,6 +22,8 @@ class DynamicFormProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
+        $this->mergeConfigFrom(__DIR__.'/config/dynamic_form.php', 'dynamic_form');
+
         $this->publishes([
             __DIR__.'/../database/migrations' => database_path('migrations'),
         ], 'form-migrations');
@@ -30,6 +32,10 @@ class DynamicFormProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/js/components' => base_path('resources/js/components'),
         ], 'form-components');
+
+        $this->publishes([
+            __DIR__.'/config' => config_path(),
+        ], 'form-config');
     }
 
 }

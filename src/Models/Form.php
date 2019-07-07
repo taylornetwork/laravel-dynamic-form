@@ -33,6 +33,12 @@ class Form extends Model
 
     public static function fetch(string $key): Form
     {
-        return static::where('key', $key)->first();
+        try {
+            return static::where('key', $key)->first();
+        } catch (\Exception $e) {
+            if(!config('dynamic_form.ignore_form_not_found', true)) {
+                throw $e;
+            }
+        }
     }
 }
